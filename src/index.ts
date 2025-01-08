@@ -152,3 +152,58 @@ const errorHandler = (): never => {
 };
 
 const mode: themeMode = "dark";
+
+//public class and object
+// class Player {
+//   height;
+//   weight;
+
+//   constructor(height:number, weight:number){
+//     this.height = height;
+//     this.weight = weight;
+//   }
+// }
+
+// const abhi = new Player(100, 200);
+
+// console.log(abhi.weight)
+
+//To access the private property outside the class in this way.
+// class Player {
+//   public height;
+//   private weight;
+
+//   constructor(height:number, weight:number){
+//     this.height = height;
+//     this.weight = weight;
+
+//   }
+
+//   getWeight = () => this.weight;
+// }
+
+// const Rakesh = new Player(150, 300);
+// console.log(Rakesh.getWeight());
+
+//In class we can declare public, private, protected member properties and can access outside using this way.
+//By default all properties are public
+//Private members are only acessible with the same class
+//Protected members are only acessible with the subclass or child class that extenda the parent class.
+
+class Player {
+constructor(
+  public height:number,
+  private weight:number,
+  protected power?:number,
+){
+
+}
+
+getWeight = () => this.weight;
+
+// getPower = () => this.power;
+}
+
+const Tusar = new Player(120, 130, 140);
+// console.log(Tusar.getPower())
+
