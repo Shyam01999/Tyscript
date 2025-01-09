@@ -69,16 +69,41 @@ const mode = "dark";
 // const Rakesh = new Player(150, 300);
 // console.log(Rakesh.getWeight());
 //In class we can declare public, private, protected member properties and can access outside using this way.
-//By default all properties are public
+//There are access specifier in class i.e public, private, Protected
+//Public members are by default all properties are public
 //Private members are only acessible with the same class
-//Protected members are only acessible with the subclass or child class that extenda the parent class.
+//Protected members are only acessible with the subclass or child class that extends the parent class.
 class Player {
-    constructor(height, weight, power) {
+    constructor(//if declared here like this below no need to used this.height = height
+    height, weight, power) {
         this.height = height;
         this.weight = weight;
         this.power = power;
-        this.getWeight = () => this.weight;
+        this.id = String(Math.random() * 100);
+    }
+    // getWeight = () => this.weight;
+    get getWeight() {
+        return this.weight;
+    }
+    set changeWeight(val) {
+        this.weight = val;
     }
 }
 const Tusar = new Player(120, 130, 140);
-// console.log(Tusar.getPower())
+console.log("Before weight", Tusar.getWeight);
+Tusar.changeWeight = 230;
+console.log("After weight", Tusar.getWeight);
+// class Player2 extends Player {
+//   special:boolean
+//   constructor(height:number, weight:number, power:number, special:boolean){
+//     super(height, weight, power)
+//     this.special = special
+//   }
+//   getPower = () => this.power;
+// }
+// const Tusar = new Player2(120, 130, 140, true);
+// console.log("Height",Tusar.height);
+// console.log("weight", Tusar.getWeight());
+// console.log("power",Tusar.getPower());
+// console.log("special", Tusar.special);
+// console.log("Id", Tusar.id);
